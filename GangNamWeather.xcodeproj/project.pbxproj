@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139FAB94688678BF3CA5D76A /* Pods_GangNamWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0976DA8F7BEEA699B0A5E6A /* Pods_GangNamWeather.framework */; };
 		752800302990D537004F3448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528002F2990D537004F3448 /* AppDelegate.swift */; };
 		752800322990D537004F3448 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800312990D537004F3448 /* SceneDelegate.swift */; };
 		752800342990D537004F3448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800332990D537004F3448 /* ViewController.swift */; };
-		752800372990D537004F3448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 752800352990D537004F3448 /* Main.storyboard */; };
 		752800392990D539004F3448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 752800382990D539004F3448 /* Assets.xcassets */; };
 		7528003C2990D539004F3448 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7528003A2990D539004F3448 /* LaunchScreen.storyboard */; };
+		752800462990D5CC004F3448 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800452990D5CC004F3448 /* NetworkError.swift */; };
+		752800482990D5D7004F3448 /* GetOpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800472990D5D7004F3448 /* GetOpenWeather.swift */; };
+		7528004A2990D64C004F3448 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800492990D64C004F3448 /* OpenWeather.swift */; };
+		7528004C2990D690004F3448 /* GangNamRoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528004B2990D690004F3448 /* GangNamRoad.swift */; };
+		7528004F2990D747004F3448 /* GangNamRoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528004E2990D747004F3448 /* GangNamRoadCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6489934E89C8CB37191925AC /* Pods-GangNamWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangNamWeather.debug.xcconfig"; path = "Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		7528002C2990D537004F3448 /* GangNamWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GangNamWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7528002F2990D537004F3448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		752800312990D537004F3448 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		752800332990D537004F3448 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		752800362990D537004F3448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		752800382990D539004F3448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7528003B2990D539004F3448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7528003D2990D539004F3448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		752800452990D5CC004F3448 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		752800472990D5D7004F3448 /* GetOpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOpenWeather.swift; sourceTree = "<group>"; };
+		752800492990D64C004F3448 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
+		7528004B2990D690004F3448 /* GangNamRoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangNamRoad.swift; sourceTree = "<group>"; };
+		7528004E2990D747004F3448 /* GangNamRoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangNamRoadCell.swift; sourceTree = "<group>"; };
+		E0976DA8F7BEEA699B0A5E6A /* Pods_GangNamWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GangNamWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F887FE1EF61D17E9B3041B6A /* Pods-GangNamWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangNamWeather.release.xcconfig"; path = "Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139FAB94688678BF3CA5D76A /* Pods_GangNamWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,8 @@
 			children = (
 				7528002E2990D537004F3448 /* GangNamWeather */,
 				7528002D2990D537004F3448 /* Products */,
+				86C143E4B373B0A355FE4A85 /* Pods */,
+				E387987D4A1B90D06D7810AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +71,60 @@
 		7528002E2990D537004F3448 /* GangNamWeather */ = {
 			isa = PBXGroup;
 			children = (
+				7528004D2990D73B004F3448 /* Cell */,
+				752800442990D572004F3448 /* Model */,
+				752800432990D56B004F3448 /* Network */,
 				7528002F2990D537004F3448 /* AppDelegate.swift */,
 				752800312990D537004F3448 /* SceneDelegate.swift */,
 				752800332990D537004F3448 /* ViewController.swift */,
-				752800352990D537004F3448 /* Main.storyboard */,
 				752800382990D539004F3448 /* Assets.xcassets */,
 				7528003A2990D539004F3448 /* LaunchScreen.storyboard */,
 				7528003D2990D539004F3448 /* Info.plist */,
 			);
 			path = GangNamWeather;
+			sourceTree = "<group>";
+		};
+		752800432990D56B004F3448 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				752800452990D5CC004F3448 /* NetworkError.swift */,
+				752800472990D5D7004F3448 /* GetOpenWeather.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		752800442990D572004F3448 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				752800492990D64C004F3448 /* OpenWeather.swift */,
+				7528004B2990D690004F3448 /* GangNamRoad.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7528004D2990D73B004F3448 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7528004E2990D747004F3448 /* GangNamRoadCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		86C143E4B373B0A355FE4A85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6489934E89C8CB37191925AC /* Pods-GangNamWeather.debug.xcconfig */,
+				F887FE1EF61D17E9B3041B6A /* Pods-GangNamWeather.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E387987D4A1B90D06D7810AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0976DA8F7BEEA699B0A5E6A /* Pods_GangNamWeather.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 752800402990D539004F3448 /* Build configuration list for PBXNativeTarget "GangNamWeather" */;
 			buildPhases = (
+				3F820A1E7AC909112E9B7CB5 /* [CP] Check Pods Manifest.lock */,
 				752800282990D537004F3448 /* Sources */,
 				752800292990D537004F3448 /* Frameworks */,
 				7528002A2990D537004F3448 /* Resources */,
+				6B166BDD8EB97AF3F055AFBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +189,72 @@
 			files = (
 				7528003C2990D539004F3448 /* LaunchScreen.storyboard in Resources */,
 				752800392990D539004F3448 /* Assets.xcassets in Resources */,
-				752800372990D537004F3448 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F820A1E7AC909112E9B7CB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GangNamWeather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B166BDD8EB97AF3F055AFBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		752800282990D537004F3448 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7528004C2990D690004F3448 /* GangNamRoad.swift in Sources */,
+				7528004A2990D64C004F3448 /* OpenWeather.swift in Sources */,
 				752800342990D537004F3448 /* ViewController.swift in Sources */,
+				752800462990D5CC004F3448 /* NetworkError.swift in Sources */,
 				752800302990D537004F3448 /* AppDelegate.swift in Sources */,
+				752800482990D5D7004F3448 /* GetOpenWeather.swift in Sources */,
 				752800322990D537004F3448 /* SceneDelegate.swift in Sources */,
+				7528004F2990D747004F3448 /* GangNamRoadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		752800352990D537004F3448 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				752800362990D537004F3448 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7528003A2990D539004F3448 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +382,7 @@
 		};
 		752800412990D539004F3448 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6489934E89C8CB37191925AC /* Pods-GangNamWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +393,6 @@
 				INFOPLIST_FILE = GangNamWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +410,7 @@
 		};
 		752800422990D539004F3448 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F887FE1EF61D17E9B3041B6A /* Pods-GangNamWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +421,6 @@
 				INFOPLIST_FILE = GangNamWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
