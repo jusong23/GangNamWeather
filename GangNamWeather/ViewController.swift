@@ -23,8 +23,7 @@ class ViewController: UIViewController {
     var addressName = UILabel() // 지번주소
     var latitude = UILabel() // 위도
     var longitude = UILabel() // 경도
-    
-    // safe area
+
     let safetyArea: UIView = {
         let v = UIView()
         v.backgroundColor = .white
@@ -81,24 +80,46 @@ class ViewController: UIViewController {
         self.fetchRentBikeStatus(of: "%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C%20396")
     }
 
+    func fetchedLocationToURL(from fetchedLocation: String) -> URL {
+        return URL(string: "https://dapi.kakao.com/v2/local/search/address.json?query=\(fetchedLocation)")!
+    }
+    
+    func urlToURLRequest(what url: URL) -> URLRequest {
+        print("url: \(url) thread in url: \(Thread.isMainThread)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("KakaoAK 4e78ea35cffb481201121cd3d09455a6", forHTTPHeaderField: "Authorization")
+        return request
+    }
+    
+    func requestToObservable(what request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
+        return URLSession.shared.rx.response(request: request)
+    }
+    
+    func arrDocumentToObservable(where arrDocument: [Document]) -> Observable<([Document], OpenWeather)> {
+        let lat = Double(arrDocument.first!.y)!
+        let lon = Double(arrDocument.first!.x)!
+
+        return self.getOpenWeather.getWeatherInfo(lat: lat, lon: lon)
+            .map { openWeather -> ([Document], OpenWeather) in
+            return (arrDocument, openWeather)
+        }
+    }
+    
     func fetchRentBikeStatus(of fetchedLocation: String) {
         Observable.from([fetchedLocation])
         // 배열의 인덱스를 하나하나 방출
         .map { fetchedLocation -> URL in
             // 타입을 변경할 때도 map이 유용하다. (Array -> URL)
-            return URL(string: "https://dapi.kakao.com/v2/local/search/address.json?query=\(fetchedLocation)")!
+            self.fetchedLocationToURL(from: fetchedLocation)
         }
         //MARK: - Request
         .map { url -> URLRequest in
-            print("url: \(url) thread in url: \(Thread.isMainThread)")
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.setValue("KakaoAK 4e78ea35cffb481201121cd3d09455a6", forHTTPHeaderField: "Authorization")
-            return request
+            self.urlToURLRequest(what: url)
         }
         // URL -> URLRequest
         .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in
-            return URLSession.shared.rx.response(request: request)
+            self.requestToObservable(what: request)
         }
         // Tuple의 형태의 Observable 시퀀스로 변환 Observable<(response,data)>.  ... Observable<Int> 처럼
         //MARK: - Response
@@ -107,42 +128,37 @@ class ViewController: UIViewController {
             return 200..<300 ~= response.statusCode
             // responds.statusCode가 해당범위에 해당하면 true
         }
-            .map { _, data -> GangNamRoad in
+        .map { _, data -> GangNamRoad in
             let decoder = JSONDecoder()
             if let json = try? decoder.decode(GangNamRoad.self, from: data) {
-                print("json: \(json)")
                 return json
             }
             throw SimpleError()
         } // MARK: - 배열만 뽑아내는(배열 타입으로 바꾸는, document가 배열 타입의 Subject) Tric
         .map { jsonObjects -> [Document] in // compactMap: 1차원 배열에서 nil을 제거하고 옵셔널 바인딩
-            //throw SimpleError() //MARK: map안에서의 에러 표현
-
-            print("jsonObjects: \(jsonObjects)")
-
             return jsonObjects.documents
         }
-            .flatMap { arrDocument -> Observable<([Document], OpenWeather)> in
-//            let lat = Double(arrDocument.first!.x)!
-//            let lon = Double(arrDocument.first!.y)!
+        .flatMap { arrDocument -> Observable<([Document], OpenWeather)> in
+            let lat = Double(arrDocument.first!.y)!
+            let lon = Double(arrDocument.first!.x)!
 
-            let lat = 37.5492 // 위에꺼 반올림하기
-            let lon = 126.9232 // 위에꺼 반올림하기
-
-            return self.getOpenWeather.getWeatherInfo(lat: lat, lon: lon)
+            print("arrDocument: \(arrDocument)")
+    
+            return self.getOpenWeather.getWeatherInfo(lat: lat, lon: lon) // Observable<OpenWeather>을 리턴하기 때문에 map 사용가능
                 .map { openWeather -> ([Document], OpenWeather) in
+                    // [Document] Line 138에서 이미 바꿔놓은 타입. 이 flatMap에서 Observable<([Document], OpenWeather)>을 쓰기에 그냥 가져온 것
+                    print("openWeather: \(openWeather)")
+                    print("(arrDocument, openWeather): \((arrDocument, openWeather))")
                 return (arrDocument, openWeather)
             }
         }
-            .subscribe(on: ConcurrentDispatchQueueScheduler(queue: .global())) // Observable 자체 Thread 변경
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: .global())) // Observable 자체 Thread 변경
         .observe(on: MainScheduler.instance) // 이후 subsribe의 Thread 변경
         .subscribe { event in // MARK: 에러처리에 용이한 subscribe 트릭
             switch event {
             case .next(let (newGangNamRoad, openWeather)):
                 self.document.onNext(newGangNamRoad)
                 self.openWeather.onNext(openWeather)
-//                print(newGangNamRoad)
-//                print(openWeather.current.temp)
                 self.autolayoutConfiguration(newAddressName: newGangNamRoad.first!.address.addressName, addressName: newGangNamRoad.first!.addressName, latitude: newGangNamRoad.first!.x, longitude: newGangNamRoad.first!.y, temperature: String(openWeather.current.temp!))
                 // BehaviorSubject에 이벤트 발생
             case .error(let error):
@@ -156,10 +172,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    // 도로명 주소, 지번 주소 , 위도 경도 °
-    func autolayoutConfiguration(newAddressName: String, addressName: String, latitude: String, longitude: String, temperature:String) {
-        safetyArea.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(safetyArea)
+    func autolayoutConfiguration(newAddressName: String, addressName: String, latitude: String, longitude: String, temperature: String) {
 
         self.newAddressName.text = newAddressName
         self.newAddressName.font = .systemFont(ofSize: 28, weight: .bold)
@@ -180,7 +193,7 @@ extension ViewController {
         self.temperature.text = temperature + "°C"
         self.temperature.font = .systemFont(ofSize: 20)
         self.temperature.textColor = .blue
-        
+
         self.newAddressName.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview().inset(18)
         }
@@ -199,7 +212,7 @@ extension ViewController {
             $0.top.equalTo(self.latitude.snp.bottom).offset(10)
             $0.leading.equalTo(self.latitude.snp.leading)
         }
-        
+
         self.temperature.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(18)
         }

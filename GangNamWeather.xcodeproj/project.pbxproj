@@ -17,7 +17,6 @@
 		752800482990D5D7004F3448 /* GetOpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800472990D5D7004F3448 /* GetOpenWeather.swift */; };
 		7528004A2990D64C004F3448 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752800492990D64C004F3448 /* OpenWeather.swift */; };
 		7528004C2990D690004F3448 /* GangNamRoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528004B2990D690004F3448 /* GangNamRoad.swift */; };
-		7528004F2990D747004F3448 /* GangNamRoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528004E2990D747004F3448 /* GangNamRoadCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		752800472990D5D7004F3448 /* GetOpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOpenWeather.swift; sourceTree = "<group>"; };
 		752800492990D64C004F3448 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 		7528004B2990D690004F3448 /* GangNamRoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangNamRoad.swift; sourceTree = "<group>"; };
-		7528004E2990D747004F3448 /* GangNamRoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangNamRoadCell.swift; sourceTree = "<group>"; };
 		E0976DA8F7BEEA699B0A5E6A /* Pods_GangNamWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GangNamWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F887FE1EF61D17E9B3041B6A /* Pods-GangNamWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangNamWeather.release.xcconfig"; path = "Target Support Files/Pods-GangNamWeather/Pods-GangNamWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +69,6 @@
 		7528002E2990D537004F3448 /* GangNamWeather */ = {
 			isa = PBXGroup;
 			children = (
-				7528004D2990D73B004F3448 /* Cell */,
 				752800442990D572004F3448 /* Model */,
 				752800432990D56B004F3448 /* Network */,
 				7528002F2990D537004F3448 /* AppDelegate.swift */,
@@ -100,14 +97,6 @@
 				7528004B2990D690004F3448 /* GangNamRoad.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7528004D2990D73B004F3448 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				7528004E2990D747004F3448 /* GangNamRoadCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		86C143E4B373B0A355FE4A85 /* Pods */ = {
@@ -248,7 +237,6 @@
 				752800302990D537004F3448 /* AppDelegate.swift in Sources */,
 				752800482990D5D7004F3448 /* GetOpenWeather.swift in Sources */,
 				752800322990D537004F3448 /* SceneDelegate.swift in Sources */,
-				7528004F2990D747004F3448 /* GangNamRoadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
